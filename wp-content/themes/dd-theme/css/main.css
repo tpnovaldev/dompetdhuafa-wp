@@ -1,0 +1,426 @@
+:root {
+  --accent: #51ab67;
+  --primary: #f2a442;
+  --secondary: #e3e3e3;
+  --light: #ffffff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: white;
+  line-height: 1.6;
+}
+
+ul li,
+ol li {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+.dd__btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 4px 0px #00000040, 0px -2px 1px 0px #00000040 inset;
+}
+.dd__btn.btn--primary {
+  color: white;
+  background-color: var(--primary);
+}
+.dd__btn.btn--secondary {
+  color: #535353;
+  background-color: var(--secondary);
+}
+
+.dd__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dd__icon.icon--email {
+  background-image: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.6666 4.33325H4.33329C3.14163 4.33325 2.17746 5.30825 2.17746 6.49992L2.16663 19.4999C2.16663 20.6916 3.14163 21.6666 4.33329 21.6666H21.6666C22.8583 21.6666 23.8333 20.6916 23.8333 19.4999V6.49992C23.8333 5.30825 22.8583 4.33325 21.6666 4.33325ZM21.2333 8.93742L13.5741 13.7258C13.2275 13.9424 12.7725 13.9424 12.4258 13.7258L4.76663 8.93742C4.658 8.87644 4.56287 8.79405 4.48701 8.69524C4.41114 8.59644 4.35611 8.48326 4.32525 8.36257C4.29439 8.24188 4.28834 8.11618 4.30746 7.99308C4.32659 7.86999 4.37049 7.75205 4.43651 7.64641C4.50254 7.54077 4.58931 7.44963 4.69158 7.3785C4.79385 7.30736 4.90949 7.25772 5.0315 7.23258C5.15351 7.20743 5.27935 7.2073 5.40141 7.2322C5.52347 7.25709 5.63921 7.3065 5.74163 7.37742L13 11.9166L20.2583 7.37742C20.3607 7.3065 20.4764 7.25709 20.5985 7.2322C20.7206 7.2073 20.8464 7.20743 20.9684 7.23258C21.0904 7.25772 21.2061 7.30736 21.3083 7.3785C21.4106 7.44963 21.4974 7.54077 21.5634 7.64641C21.6294 7.75205 21.6733 7.86999 21.6925 7.99308C21.7116 8.11618 21.7055 8.24188 21.6747 8.36257C21.6438 8.48326 21.5888 8.59644 21.5129 8.69524C21.437 8.79405 21.3419 8.87644 21.2333 8.93742V8.93742Z' fill='url(%23paint0_linear_412_1019)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_412_1019' x1='13' y1='4.33325' x2='13' y2='21.6666' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233E7D52'/%3E%3Cstop offset='1' stop-color='%2351AB67'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+.dd__icon.icon--password {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.0273 13.4258L9.69141 14.6914C9.55078 14.9023 9.3125 15 9.0625 15H7.5V16.5625C7.5 17.082 7.08203 17.5 6.5625 17.5H5V19.0625C5 19.582 4.58203 20 4.0625 20H0.9375C0.419922 20 0 19.582 0 19.0625V15.9375C0 15.6875 0.0987891 15.4492 0.27457 15.2734L6.57422 8.97266C6.36328 8.3125 6.25 7.60547 6.25 6.875C6.25 3.07812 9.32812 0 13.125 0C16.9219 0 20 3.07812 20 6.875C20 10.6719 16.9219 13.75 13.125 13.75C12.3945 13.75 11.6875 13.6367 11.0273 13.4258ZM14.6875 6.875C15.5508 6.875 16.25 6.17578 16.25 5.3125C16.25 4.44922 15.5508 3.75 14.6875 3.75C13.8242 3.75 13.125 4.44922 13.125 5.3125C13.125 6.17578 13.8242 6.875 14.6875 6.875Z' fill='url(%23paint0_linear_412_1021)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_412_1021' x1='10' y1='0' x2='10' y2='20' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233E7D52'/%3E%3Cstop offset='1' stop-color='%2351AB67'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+.dd__icon.icon--user {
+  background-image: url("data:image/svg+xml,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.6519 14.0653C14.5112 14.0193 13.6222 13.6186 14.1777 11.9299H14.1698C15.6179 10.4384 16.7245 8.03844 16.7245 5.67563C16.7245 2.04252 14.3087 0.137939 11.5009 0.137939C8.69135 0.137939 6.28874 2.04163 6.28874 5.67563C6.28874 8.04817 7.3892 10.4579 8.84616 11.9458C9.41408 13.4355 8.39855 13.9884 8.18624 14.0662C5.24578 15.1295 1.79578 17.0677 1.79578 18.9811V19.6986C1.79578 22.3055 6.85047 22.8982 11.5283 22.8982C16.2132 22.8982 21.2042 22.3055 21.2042 19.6986V18.9811C21.2042 17.0102 17.7374 15.0871 14.6519 14.0653Z' fill='url(%23paint0_linear_412_955)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_412_955' x1='11.5' y1='0.137939' x2='11.5' y2='22.8982' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233E7D52'/%3E%3Cstop offset='1' stop-color='%2351AB67'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+.dd__icon.icon--phone {
+  background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.3438 1.69531H7.65625C6.69102 1.69531 5.90625 2.48008 5.90625 3.44531V24.4453C5.90625 25.4105 6.69102 26.1953 7.65625 26.1953H20.3438C21.309 26.1953 22.0938 25.4105 22.0938 24.4453V3.44531C22.0938 2.48008 21.309 1.69531 20.3438 1.69531ZM14 22.5312C13.3957 22.5312 12.9062 22.0418 12.9062 21.4375C12.9062 20.8332 13.3957 20.3438 14 20.3438C14.6043 20.3438 15.0938 20.8332 15.0938 21.4375C15.0938 22.0418 14.6043 22.5312 14 22.5312Z' fill='url(%23paint0_linear_412_965)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_412_965' x1='14' y1='1.69531' x2='14' y2='26.1953' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233E7D52'/%3E%3Cstop offset='1' stop-color='%2351AB67'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+.dd__icon.icon--add {
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30ZM15 11C15 10.7348 15.1054 10.4804 15.2929 10.2929C15.4804 10.1054 15.7348 10 16 10C16.2652 10 16.5196 10.1054 16.7071 10.2929C16.8946 10.4804 17 10.7348 17 11V15H21C21.2652 15 21.5196 15.1054 21.7071 15.2929C21.8946 15.4804 22 15.7348 22 16C22 16.2652 21.8946 16.5196 21.7071 16.7071C21.5196 16.8946 21.2652 17 21 17H17V21C17 21.2652 16.8946 21.5196 16.7071 21.7071C16.5196 21.8946 16.2652 22 16 22C15.7348 22 15.4804 21.8946 15.2929 21.7071C15.1054 21.5196 15 21.2652 15 21V17H11C10.7348 17 10.4804 16.8946 10.2929 16.7071C10.1054 16.5196 10 16.2652 10 16C10 15.7348 10.1054 15.4804 10.2929 15.2929C10.4804 15.1054 10.7348 15 11 15H15V11Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+
+.dd__muted {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dd__link {
+  color: white;
+  display: inline-block;
+}
+
+.dd__container {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+
+.dd__header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  padding: 0.625rem 0;
+}
+.admin-bar .dd__header {
+  top: 32px;
+}
+
+.dd__brand {
+  max-width: 88px;
+  display: block;
+  margin: 0 auto;
+}
+.dd__brand img {
+  width: 100%;
+  display: block;
+}
+
+.dd__main {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 60.57px;
+}
+
+.dd__banner {
+  position: relative;
+  display: block;
+}
+.dd__banner img {
+  width: 100%;
+}
+.dd__banner.banner--sm img {
+  height: 160px;
+  object-fit: cover;
+  object-position: top;
+}
+.dd__banner.banner--kind {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3rem 3rem 5rem;
+}
+.dd__banner .animal {
+  width: auto;
+  height: auto !important;
+  margin: 0 auto 1rem;
+  display: block;
+}
+.dd__banner p {
+  width: auto;
+  margin: auto;
+  font-size: 1.125rem;
+  max-width: 200px;
+  text-align: center;
+}
+
+.dd__content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  background-color: var(--accent);
+  padding: 2.5rem 2rem;
+  border-top-left-radius: 1.75rem;
+  border-top-right-radius: 1.75rem;
+  margin-top: -2rem;
+  box-shadow: 0px -8px 21px -7px #000000bd;
+}
+
+.dd__info {
+  color: white;
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.dd__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dd__social a {
+  display: block;
+  margin: 0.5rem;
+}
+
+.dd__form {
+  width: 100%;
+  display: block;
+  margin-top: 1.5rem;
+}
+.dd__form .dd__group {
+  margin-bottom: 1rem;
+}
+.dd__form .dd__input {
+  position: relative;
+}
+.dd__form .dd__input .dd__icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.5rem;
+  margin: auto;
+}
+.dd__form .dd__input input {
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 1rem;
+  border: none;
+  width: 100%;
+  padding: 1.125rem 1.5rem 1.125rem 4rem;
+  outline: none;
+  box-shadow: 0px 4px 20px 0px #00000040;
+}
+.dd__form .dd__input + .dd__check {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dd__check input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.dd__check label {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.dd__check label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: transparent;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.875rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 0.375rem;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 4px 20px 0px #00000040;
+}
+.dd__check input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 7px;
+  width: 11px;
+  height: 22px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.dd__check.check--center input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -6px;
+  right: 56px;
+  margin: auto;
+  left: 0;
+  width: 11px;
+  height: 22px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.dd__radio {
+  width: 100%;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0px 4px 20px 0px #00000040;
+}
+.dd__radio [type='radio']:checked,
+.dd__radio [type='radio']:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.dd__radio [type='radio']:checked + label,
+.dd__radio [type='radio']:not(:checked) + label {
+  position: relative;
+  font-size: 1rem;
+  padding: 0.75rem 1.125rem;
+  font-weight: 700;
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dd__radio [type='radio']:checked + label:before,
+.dd__radio [type='radio']:not(:checked) + label:before {
+  content: '';
+  position: relative;
+  margin-right: 0.5rem;
+  display: block;
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  border: 2px solid #e5e5e5;
+  border-radius: 100%;
+  background: white;
+}
+.dd__radio [type='radio']:checked + label:after,
+.dd__radio [type='radio']:not(:checked) + label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 22px;
+  margin: auto;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+.dd__radio [type='radio']:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.dd__radio [type='radio']:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+.dd__radio [type='radio']:checked + label span,
+.dd__radio [type='radio']:not(:checked) + label span {
+  text-align: left;
+  width: 100%;
+  position: relative;
+  padding-right: 8rem;
+}
+.dd__radio [type='radio']:checked + label span small,
+.dd__radio [type='radio']:not(:checked) + label span small {
+  display: block;
+  font-size: 0.75rem;
+}
+.dd__radio [type='radio']:checked + label span em,
+.dd__radio [type='radio']:not(:checked) + label span em {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 18px;
+  margin: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.dd__add {
+  background-color: var(--primary);
+  box-shadow: 0px 4px 20px 0px #00000040;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 1rem;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.125rem;
+  cursor: pointer;
+}
+.dd__add i {
+  margin-right: 0.5rem;
+  margin-left: 0.375rem;
+}
+
+.dd__inner_content {
+  background-color: white;
+  margin-top: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+}
+.dd__inner_content h3 {
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.dd__scrollable {
+  text-align: left;
+  overflow-y: auto;
+  max-height: 400px;
+}
