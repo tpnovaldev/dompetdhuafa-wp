@@ -16,8 +16,10 @@ get_header();
 ?> 
   
   <main class="dd__main">
+
     <?php /* Start the Loop */ ?>
     <?php while ( have_posts() ) : the_post(); ?>
+    
       <div class="dd__banner banner--kind" style="background-image: url(<?php echo(get_template_directory_uri()); ?>/images/no_animal.jpg);">
         <img src="<?php echo get_post_meta($post->ID, 'kind_image', true); ?>" class="animal" alt="<?php echo the_title() ?>" />
         <p style="top: 70%"><?php echo get_post_meta($post->ID, 'kind_desc', true); ?></p>
@@ -93,5 +95,7 @@ get_header();
           </div>
         </form>
       </div>
+
     <?php endwhile; ?>
+  
   </main>

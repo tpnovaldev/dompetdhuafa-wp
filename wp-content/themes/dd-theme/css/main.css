@@ -424,3 +424,9 @@ b {
   overflow-y: auto;
   max-height: 400px;
 }
+
+.dd__scrollable ul,
+.dd__scrollable ol {
+  margin: 0 0 1rem;
+  padding-right: 2.5rem;
+}

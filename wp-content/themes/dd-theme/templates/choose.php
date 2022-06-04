@@ -31,6 +31,20 @@ if(isset($_POST['qurban'])) {
 get_header();
 ?> 
 
+  <script>
+
+  var isLoggedIn = false;
+
+  // This line checks if user is logged in and set isLoggedIn variable
+  if (document.body.classList.contains('logged-in')) { isLoggedIn = true; } 
+
+  if (isLoggedIn == false) {
+    // If the customer is logged into WordPress, redirect the user to another page
+    window.location.pathname = `dompetdhuafa-wp/masuk/`;
+  }
+
+  </script>
+
   <main class="dd__main">
     <div class="dd__banner">
       <img src="<?php echo(get_template_directory_uri()); ?>/images/qurban.jpg" alt="kurban" />

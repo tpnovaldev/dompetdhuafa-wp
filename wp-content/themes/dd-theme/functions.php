@@ -177,3 +177,143 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Login Form Shortcode
+ */
+function dd_add_login_shortcode() {
+	add_shortcode( 'jay-login-form', 'dd_login_form_shortcode' );
+}
+
+function dd_login_form_shortcode( $args = array() ) {
+	$defaults = array(
+			'echo'           => true,
+			// Default 'redirect' value takes the user back to the request URI.
+			'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+			'form_id'        => 'loginform',
+			'label_username' => __( 'Email' ),
+			'label_password' => __( 'Kata Sandi' ),
+			'label_log_in'   => __( 'Masuk' ),
+			'id_username'    => 'user_login',
+			'id_password'    => 'user_pass',
+			'id_submit'      => 'wp-submit',
+			'remember'       => false,
+			'value_username' => '',
+			// Set 'value_remember' to true to default the "Remember me" checkbox to checked.
+			'value_remember' => false,
+	);
+
+	/**
+	 * Filters the default login form output arguments.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @see wp_login_form()
+	 *
+	 * @param array $defaults An array of default login form arguments.
+	 */
+	$args = wp_parse_args( $args, apply_filters( 'login_form_defaults', $defaults ) );
+
+	/**
+	 * Filters content to display at the top of the login form.
+	 *
+	 * The filter evaluates just following the opening form tag element.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $content Content to display. Default empty.
+	 * @param array  $args    Array of login form arguments.
+	 */
+	$login_form_top = apply_filters( 'login_form_top', '', $args );
+
+	/**
+	 * Filters content to display in the middle of the login form.
+	 *
+	 * The filter evaluates just following the location where the 'login-password'
+	 * field is displayed.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $content Content to display. Default empty.
+	 * @param array  $args    Array of login form arguments.
+	 */
+	$login_form_middle = apply_filters( 'login_form_middle', '', $args );
+
+	/**
+	 * Filters content to display at the bottom of the login form.
+	 *
+	 * The filter evaluates just preceding the closing form tag element.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $content Content to display. Default empty.
+	 * @param array  $args    Array of login form arguments.
+	 */
+	$login_form_bottom = apply_filters( 'login_form_bottom', '', $args );
+
+	$form =
+			sprintf(
+					'<form name="%1$s" id="%1$s" action="%2$s" method="post" class="dd__form">',
+					esc_attr( $args['form_id'] ),
+					esc_url( site_url( 'wp-login.php', 'login_post' ) )
+			) .
+			$login_form_top .
+			sprintf(
+					'<div class="dd__group">
+						<div class="dd__input">
+							<i class="dd__icon icon--email"></i>
+							<input type="text" name="log" id="%1$s" autocomplete="username" value="%3$s" size="20" placeholder="%2$s" />
+						</div>
+					</div>',
+					esc_attr( $args['id_username'] ),
+					esc_html( $args['label_username'] ),
+					esc_attr( $args['value_username'] )
+			) .
+			sprintf(
+					'<div class="dd__group">
+						<div class="dd__input">
+							<i class="dd__icon icon--password"></i>
+							<input type="password" name="pwd" id="%1$s" autocomplete="current-password" class="js-password" value="" size="20" placeholder="%2$s" />
+						</div>
+						<div class="dd__check">
+              <input type="checkbox" class="js-password-toggle" id="togglePassword" />
+              <label for="togglePassword">Tampilkan Kata Sandi</label>
+            </div>
+					</div>',
+					esc_attr( $args['id_password'] ),
+					esc_html( $args['label_password'] )
+			) .
+			$login_form_middle .
+			sprintf(
+					'<div class="login-submit">
+							<input type="submit" name="wp-submit" id="%1$s" class="dd__btn btn--primary" value="%2$s" />
+							<input type="hidden" name="redirect_to" value="%3$s" />
+					</div>',
+					esc_attr( $args['id_submit'] ),
+					esc_attr( $args['label_log_in'] ),
+					esc_url( $args['redirect'] )
+			) .
+			$login_form_bottom .
+			'</form>';
+
+	if ( $args['echo'] ) {
+			echo $form;
+	} else {
+			return $form;
+	}
+}
+add_action( 'init', 'dd_add_login_shortcode' );
+
+
+add_action( 'wp_logout','auto_redirect_after_logout' );
+function auto_redirect_after_logout(){
+  wp_safe_redirect( get_site_url() . "/masuk" );
+  exit;
+}
+
+// add_action( 'after_setup_theme', 'remove_admin_bar' );
+// function remove_admin_bar() {
+// 	if (current_user_can('subscriber')) {
+// 		show_admin_bar(false);
+// 	}
+// }
+

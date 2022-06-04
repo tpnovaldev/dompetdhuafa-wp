@@ -15,6 +15,35 @@
 get_header();
 ?>
 
+  <script>
+
+    var isLoggedIn = false;
+
+    // This line checks if user is logged in and set isLoggedIn variable
+    if (document.body.classList.contains('logged-in')) { isLoggedIn = true; } 
+
+    if (isLoggedIn == true) {
+      // If the customer is logged into WordPress, redirect the user to another page
+      window.location.pathname = `dompetdhuafa-wp/pilih-hewan-kurban/`;
+    }
+
+    // Toggle Password 
+    const passwordToggle = document.querySelector('.js-password-toggle')
+
+    passwordToggle.addEventListener('change', function() {
+      const password = document.querySelector('.js-password')
+      
+      if (password.type === 'password') {
+        password.type = 'text'
+      } else {
+        password.type = 'password'
+      }
+      
+      password.focus()
+    })
+    
+  </script>
+  
   <main class="dd__main">
     <div class="dd__banner banner--sm">
       <img src="<?php echo(get_template_directory_uri()); ?>/images/no_animal.jpg" alt="no animal" />
@@ -23,36 +52,12 @@ get_header();
     <div class="dd__content">
       <h2>Selamat Datang Kembali!</h2>
 
-      <form action="/" class="dd__form">
-        <div class="dd__group">
-          <div class="dd__input">
-            <i class="dd__icon icon--email"></i>
+      <?php /* Start the Loop */ ?>
+      <?php while ( have_posts() ) : the_post(); ?>
 
-            <input type="email" name="email" placeholder="Email" />
-          </div>
-        </div>
+        <?php the_content(); ?>
 
-        <div class="dd__group">
-          <div class="dd__input">
-            <i class="dd__icon icon--password"></i>
-            <input type="password" name="password" placeholder="Kata sandi" />
-          </div>
-
-          <div class="dd__check">
-            <input type="checkbox" id="togglePassword" />
-
-            <label for="togglePassword">Tampilkan Kata Sandi</label>
-          </div>
-        </div>
-
-        <div class="dd__group">
-          <button class="dd__btn btn--primary" type="submit">Masuk</button>
-        </div>
-
-        <br />
-        
-        <a href="#" class="dd__link"><b>Lupa Kata Sandi?</b></a>
-      </form>
+      <?php endwhile; ?>
 
       <small class="dd__info">Atau melalui media sosial</small>
       
